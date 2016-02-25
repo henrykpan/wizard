@@ -1,0 +1,85 @@
+<div class="well">
+  <div class="row">
+    <div class="col-md-6">
+     <div class="form-group">
+        <label>Password *</label>
+        <input name="userPass" type='password' placeholder="Enter your password" class="form-control" required ng-model="newUser.pass" />
+        <div class="error" ng-show="showValidation"  ng-bind-html="getError(validForm.userPass.$error)"></div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+     <div class="form-group">
+        <label>Confirm password *</label>
+        <input name="userConfPass" type="password" placeholder="Confirm your password" class="form-control" match="newUser.pass" required ng-model="newUser.confpass" />
+        <div class="error" ng-show="showValidation"  ng-bind-html="getError(validForm.userConfPass.$error)"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+     <div class="form-group">
+        <label>Address line 1 *</label>
+        <input name="userAddress1" type="text" placeholder="Enter your address" class="form-control" required ng-model="newUser.address1" />
+        <div class="error" ng-show="showValidation"  ng-bind-html="getError(validForm.userAddress1.$error)"></div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+     <div class="form-group">
+        <label>Address line 2</label>
+        <input name="userAddress2" type="text" placeholder="Enter your address" class="form-control" ng-model="newUser.address2" />
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+     <div class="form-group">
+        <label>Town/city *</label>
+        <input name="userCity" type="text" placeholder="Enter your town/city" class="form-control" required ng-model="newUser.city" />
+        <div class="error" ng-show="showValidation"  ng-bind-html="getError(validForm.userCity.$error)"></div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+     <div class="form-group">
+        <label>Post code *</label>
+        <input name="userPost" type="text" placeholder="Enter your post code" class="form-control" required ng-model="newUser.post" />
+        <div class="error" ng-show="showValidation"  ng-bind-html="getError(validForm.userPost.$error)"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+     <div class="form-group">
+        <label>Country *</label>
+        <select name="userCountry" class="form-control" ng-options="country.code as country.name_en for country in countryslist" required ng-model="newUser.country">
+          <option value="">Select your country</option>
+        </select>
+        <div class="error" ng-show="showValidation"  ng-bind-html="getError(validForm.userCountry.$error)"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="checkbox">
+        <label>
+          <input name="userAgreed" type="checkbox" required ng-model="newUser.agreed" >
+          I am over 18 and I agree with the Terms & Conditions copy
+        </label>
+        <div class="error" ng-show="showValidation"  ng-bind-html="getError(validForm.userAgreed.$error)"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 col-md-offset-5">
+      <button class="btn btn-primary btn-lg" ng-click="backTo('default')">Back</button>
+      <button ng-click="update(newUser,'stage3')" class="btn btn-success btn-lg" >Next</button>
+    </div>
+  </div>
+</div>

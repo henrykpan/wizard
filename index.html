@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"  ng-app="WizardApp">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Form and navbar</title>
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  
+  <link rel="stylesheet" href="wizard-form.css" />
+  <link rel="stylesheet" href="navbar.css" />
+  <script src="js/jquery-1.12.0.min.js" charset="utf-8"></script>
+  <script src="js/bootstrap.js" charset="utf-8"></script>
+  <script src="js/angular.min.js" charset="utf-8"></script>
+</head>
+<body>
+  <div class="container" ng-controller="WizardController">
+   <nav class="navbar navbar-default">
+  <ul class="nav navbar-nav">
+    <li class="active" id="first"><a href="#">Przegląd </a></li>
+    <li><a href="#">Szczegóły </a></li>
+    <li><a href="#">Płatności <span>45</span></a></li>
+    <li><a href="#">Szkody <span>13</span></a></li>
+    <li id="last"><a href="#">Historia </a></li>
+  </ul>
+  </nav>
+    <h5>* Marked fields are required</h5>
+    <form name="validForm" novalidate ng-class="showValidation ? 'validate' : ''">
+      <div ng-switch on="selection">
+        <div ng-switch-default >
+          <ng-include src="'form1.html'"></ng-include>
+        </div>
+        <div ng-switch-when="stage2">
+          <ng-include src="'form2.html'"></ng-include>
+        </div>
+        <div ng-switch-when="stage3">
+          <pre>{{newUser | json}}</pre>
+        </div>
+      </div>
+    </form>
+  </div>
+ 
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="wizard-app.js"></script>
+</body>
+</html>

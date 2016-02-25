@@ -1,0 +1,59 @@
+  <div class="well">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>First name *</label>
+          <input name="userName" type="text" placeholder="Enter your first name" class="form-control" required ng-model="newUser.name" />
+          <div class="error" ng-show="showValidation"  ng-bind-html="getError(validForm.userName.$error)"></div>
+        </div>
+      </div>
+      <div class="col-md-6">
+       <div class="form-group">
+          <label>Last name *</label>
+          <input name="userLastName" type="text" placeholder="Enter your last name" class="form-control" required ng-model="newUser.lastname" />
+          <div class="error" ng-show="showValidation"  ng-bind-html="getError(validForm.userLastName.$error)"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+       <div class="form-group">
+          <label>Email address *</label>
+          <input name="userEmail" type="email" placeholder="Enter your email address" class="form-control" ng-pattern="regExp.email" required ng-model="newUser.email" />
+          <div class="error" ng-show="showValidation"  ng-bind-html="getError(validForm.userEmail.$error)"></div>
+        </div>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Phone number *</label>
+          <input name="userPhone" type="text" placeholder="Enter your phone number inc. country code" class="form-control" required ng-model="newUser.phone" />
+          <div class="error" ng-show="showValidation"  ng-bind-html="getError(validForm.userPhone.$error)"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+      
+        <div class="radio">
+        <p>Sex *</p>
+          <label>
+            <input type="radio" name="userSex" id="userSex1" value="Male" required ng-model="newUser.sex">Male 
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="userSex" id="userSex2" value="Female" required ng-model="newUser.sex">Female
+          </label>
+        </div>
+      <div class="error" ng-show="showValidation"  ng-bind-html="getError(validForm.userSex.$error)"></div>
+      </div>  
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <button ng-click="update(newUser,'stage2')" class="btn btn-success btn-lg btn-block" >Next</button>
+      </div>
+    </div>
+  </div>
